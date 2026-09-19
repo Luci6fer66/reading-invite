@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Амелия &amp; Максим — Приглашение на свадьбу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211926;
+    --plum:#4a2545;
+    --plum-deep:#2f1830;
+    --lilac:#b79fc5;
+    --lilac-soft:#e7dcef;
+    --cream:#faf7f2;
+    --gold:#c9a66b;
+    --white:#ffffff;
+    --max-w:640px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Marcellus', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    margin:0;
+  }
+
+  section{
+    min-height:100svh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:5rem 1.5rem;
+    position:relative;
+    text-align:center;
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    width:100%;
+    margin:0 auto;
+  }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    color:var(--white);
+    background:
+      linear-gradient(180deg, rgba(47,24,48,.55) 0%, rgba(47,24,48,.75) 100%),
+      url('https://picsum.photos/seed/amelia-maxim-1/1400/1600') center/cover no-repeat;
+    justify-content:space-between;
+    padding-top:4rem;
+    padding-bottom:3rem;
+  }
+
+  .hero-top{
+    font-family:'Marcellus', serif;
+    font-size:.78rem;
+    letter-spacing:.18em;
+    color:var(--lilac-soft);
+    opacity:.9;
+  }
+
+  .hero-names{
+    font-size:clamp(3rem, 11vw, 5.2rem);
+    line-height:1;
+    margin:1.6rem 0 .9rem;
+  }
+
+  .hero-and{
+    display:block;
+    font-style:italic;
+    font-size:.42em;
+    color:var(--gold);
+    margin:.35em 0;
+  }
+
+  .hero-sub{
+    font-family:'Marcellus', serif;
+    font-size:1rem;
+    color:var(--lilac-soft);
+    max-width:26ch;
+    margin:0 auto;
+    line-height:1.6;
+  }
+
+  /* ---------- NAV BUTTONS ---------- */
+  .nav-btn{
+    appearance:none;
+    border:1px solid currentColor;
+    background:transparent;
+    color:inherit;
+    font-family:'Marcellus', serif;
+    font-size:.82rem;
+    letter-spacing:.08em;
+    padding:.95rem 2.1rem;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background-color .25s ease, color .25s ease;
+    margin-top:2.6rem;
+  }
+
+  #hero .nav-btn{
+    color:var(--white);
+  }
+  #hero .nav-btn:hover{
+    background:var(--white);
+    color:var(--plum-deep);
+  }
+
+  .section-dark .nav-btn:hover{
+    background:var(--cream);
+    color:var(--plum-deep);
+  }
+
+  .section-light .nav-btn{
+    color:var(--plum);
+  }
+  .section-light .nav-btn:hover{
+    background:var(--plum);
+    color:var(--cream);
+  }
+
+  /* ---------- GENERIC SECTION STYLES ---------- */
+  .section-light{ background:var(--cream); }
+  .section-dark{
+    background:var(--plum);
+    color:var(--lilac-soft);
+  }
+
+  .eyebrow{
+    font-size:.72rem;
+    letter-spacing:.16em;
+    color:var(--gold);
+    margin-bottom:.9rem;
+  }
+
+  .section-title{
+    font-size:clamp(2.1rem, 6vw, 2.8rem);
+    margin-bottom:1.4rem;
+  }
+
+  .section-photo{
+    width:100%;
+    max-width:420px;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    border-radius:2px;
+    margin:1.8rem auto 0;
+    box-shadow:0 18px 40px -18px rgba(33,25,38,.45);
+  }
+
+  .detail-line{
+    font-size:1.08rem;
+    line-height:1.9;
+    margin:.2rem 0;
+  }
+
+  .detail-line strong{
+    font-weight:400;
+    color:var(--plum);
+  }
+
+  .section-dark .detail-line strong{
+    color:var(--gold);
+  }
+
+  /* swatches for dress code */
+  .swatches{
+    display:flex;
+    gap:.7rem;
+    justify-content:center;
+    margin:1.6rem 0 .2rem;
+  }
+  .swatch{
+    width:2.6rem;
+    height:2.6rem;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.25);
+  }
+
+  .menu-list{
+    list-style:none;
+    padding:0;
+    margin:1.6rem 0 0;
+    font-size:1.08rem;
+    line-height:2;
+  }
+
+  /* ---------- RSVP FORM ---------- */
+  #section5{
+    background:var(--plum-deep);
+    color:var(--lilac-soft);
+  }
+
+  form{
+    width:100%;
+    margin-top:1.8rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+  }
+
+  .field{
+    text-align:left;
+  }
+
+  label{
+    display:block;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    color:var(--lilac);
+    margin-bottom:.4rem;
+  }
+
+  input[type="text"],
+  input[type="tel"]{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid rgba(231,220,239,.4);
+    color:var(--white);
+    font-family:'Marcellus', serif;
+    font-size:1rem;
+    padding:.6rem 0;
+    outline:none;
+    transition:border-color .2s ease;
+  }
+  input[type="text"]:focus,
+  input[type="tel"]:focus{
+    border-color:var(--gold);
+  }
+
+  .checkbox-row{
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+    justify-content:center;
+    margin-top:.4rem;
+  }
+  .checkbox-row input{
+    width:1.15rem;
+    height:1.15rem;
+    accent-color:var(--gold);
+  }
+  .checkbox-row label{
+    margin:0;
+    font-size:.9rem;
+    color:var(--lilac-soft);
+    letter-spacing:.04em;
+  }
+
+  .submit-btn{
+    appearance:none;
+    border:1px solid var(--gold);
+    background:var(--gold);
+    color:var(--plum-deep);
+    font-family:'Marcellus', serif;
+    font-size:.88rem;
+    letter-spacing:.08em;
+    padding:1rem 2rem;
+    border-radius:2px;
+    cursor:pointer;
+    margin-top:.6rem;
+    transition:opacity .2s ease;
+  }
+  .submit-btn:disabled{ opacity:.55; cursor:not-allowed; }
+  .submit-btn:hover:not(:disabled){ opacity:.88; }
+
+  .form-msg{
+    min-height:1.2rem;
+    font-size:.85rem;
+    color:#e8a3a3;
+  }
+
+  .rsvp-success{
+    display:none;
+  }
+  .rsvp-success.show{
+    display:block;
+  }
+  .rsvp-success h2{
+    color:var(--white);
+    margin-bottom:.6rem;
+  }
+  .rsvp-success p{
+    color:var(--lilac-soft);
+    font-size:1rem;
+  }
+
+  footer{
+    text-align:center;
+    padding:2.4rem 1rem 3rem;
+    background:var(--plum-deep);
+    color:rgba(231,220,239,.45);
+    font-size:.75rem;
+    letter-spacing:.1em;
+  }
+
+  #confetti-canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:999;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-top">СВАДЕБНОЕ ПРИГЛАШЕНИЕ</div>
+    <h1 class="hero-names">Амелия<span class="hero-and">&amp;</span>Максим</h1>
+    <p class="hero-sub">Мы решили сказать друг другу «да» и очень хотим, чтобы вы были рядом в этот день.</p>
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('section1').scrollIntoView()">КОГДА?</button>
+</section>
+
+<!-- 1: КОГДА -->
+<section id="section1" class="section-light">
+  <div class="wrap">
+    <div class="eyebrow">ПУНКТ 1</div>
+    <h2 class="section-title">Когда и где</h2>
+    <p class="detail-line">Приглашаем на свадьбу<br><strong>30 марта 2030, 17:00</strong></p>
+    <p class="detail-line">Ресторан «NNN»<br>г. Город, ул. Улица, д. NN</p>
+    <img class="section-photo" src="https://picsum.photos/seed/amelia-maxim-2/800/600" alt="Место проведения свадьбы">
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('section2').scrollIntoView()">В ЧЁМ ПРИХОДИТЬ?</button>
+</section>
+
+<!-- 2: ДРЕСС-КОД -->
+<section id="section2" class="section-dark">
+  <div class="wrap">
+    <div class="eyebrow">ПУНКТ 2</div>
+    <h2 class="section-title">Дресс-код</h2>
+    <p class="detail-line">Чёрно-белые тона и оттенки фиолетового —<br>оставим яркие краски дома.</p>
+    <div class="swatches">
+      <span class="swatch" style="background:#1c1622"></span>
+      <span class="swatch" style="background:#ffffff"></span>
+      <span class="swatch" style="background:#6a3d78"></span>
+      <span class="swatch" style="background:#b79fc5"></span>
+    </div>
+    <img class="section-photo" src="https://picsum.photos/seed/amelia-maxim-3/800/600" alt="Пример нарядов дресс-кода">
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('section3').scrollIntoView()">ЧТО БУДЕТ?</button>
+</section>
+
+<!-- 3: ПРОГРАММА / МЕНЮ -->
+<section id="section3" class="section-light">
+  <div class="wrap">
+    <div class="eyebrow">ПУНКТ 3</div>
+    <h2 class="section-title">Что будет</h2>
+    <ul class="menu-list">
+      <li>Лёгкие закуски</li>
+      <li>Спиртные напитки</li>
+      <li>Приятная атмосфера и хорошая компания</li>
+    </ul>
+    <img class="section-photo" src="https://picsum.photos/seed/amelia-maxim-4/800/600" alt="Атмосфера праздника">
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('section4').scrollIntoView()">ЧТО МНЕ ПОДАРИТЬ?</button>
+</section>
+
+<!-- 4: ПОДАРКИ -->
+<section id="section4" class="section-dark">
+  <div class="wrap">
+    <div class="eyebrow">ПУНКТ 4</div>
+    <h2 class="section-title">Подарите нам</h2>
+    <p class="detail-line">Просто хорошее настроение —<br>большего нам не нужно.</p>
+    <img class="section-photo" src="https://picsum.photos/seed/amelia-maxim-5/800/600" alt="Праздничное настроение">
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('section5').scrollIntoView()">Я ПРИДУ!</button>
+</section>
+
+<!-- 5: RSVP FORM -->
+<section id="section5">
+  <div class="wrap">
+    <div id="rsvp-form-wrap">
+      <div class="eyebrow">ПУНКТ 5</div>
+      <h2 class="section-title">Будете с нами?</h2>
+      <p class="detail-line" style="opacity:.85">Подтвердите участие — и мы будем вас ждать.</p>
+
+      <form id="rsvp-form" novalidate>
+        <input type="hidden" name="access_key" value="5df75759-cab1-4965-9e47-6749bbdae8f4">
+        <input type="hidden" name="subject" value="Новое подтверждение на свадьбу Амелии и Максима">
+
+        <div class="field">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="phone">Номер телефона</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel">
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="attending" name="attending" value="Я приду!">
+          <label for="attending">Я ПРИДУ!</label>
+        </div>
+
+        <div class="form-msg" id="form-msg"></div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Отправить</button>
+      </form>
+    </div>
+
+    <div class="rsvp-success" id="rsvp-success">
+      <h2 class="section-title">Спасибо!</h2>
+      <p>Мы получили ваш ответ и очень ждём встречи с вами на свадьбе.</p>
+    </div>
+  </div>
+</section>
+
+<footer>АМЕЛИЯ &amp; МАКСИМ · 30.03.2030</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('rsvp-form');
+  var msg = document.getElementById('form-msg');
+  var submitBtn = document.getElementById('submit-btn');
+  var formWrap = document.getElementById('rsvp-form-wrap');
+  var successBox = document.getElementById('rsvp-success');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.textContent = '';
+
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+
+    if(!name || !phone){
+      msg.textContent = 'Пожалуйста, укажите имя и номер телефона.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+
+    var formData = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Отправить';
+
+      if(data.success){
+        formWrap.style.display = 'none';
+        successBox.classList.add('show');
+        launchConfetti();
+      } else {
+        msg.textContent = 'Что-то пошло не так. Попробуйте ещё раз.';
+      }
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Отправить';
+      msg.textContent = 'Не удалось отправить форму. Проверьте подключение к интернету.';
+    });
+  });
+
+  // --- lightweight confetti, no external library ---
+  function launchConfetti(){
+    var canvas = document.getElementById('confetti-canvas');
+    var ctx = canvas.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.scale(dpr, dpr);
+
+    var colors = ['#c9a66b', '#b79fc5', '#4a2545', '#ffffff', '#e7dcef'];
+    var pieces = [];
+    var count = 160;
+
+    for(var i = 0; i < count; i++){
+      pieces.push({
+        x: Math.random() * window.innerWidth,
+        y: -20 - Math.random() * window.innerHeight * 0.5,
+        w: 6 + Math.random() * 6,
+        h: 8 + Math.random() * 10,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 10,
+        speedY: 2 + Math.random() * 3,
+        speedX: (Math.random() - 0.5) * 2,
+        opacity: 1
+      });
+    }
+
+    var start = null;
+    var duration = 4200;
+
+    function frame(ts){
+      if(!start) start = ts;
+      var elapsed = ts - start;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      var stillFalling = false;
+      for(var i = 0; i < pieces.length; i++){
+        var p = pieces[i];
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.rotation += p.rotationSpeed;
+        if(elapsed > duration * 0.6){
+          p.opacity = Math.max(0, 1 - (elapsed - duration * 0.6) / (duration * 0.4));
+        }
+        if(p.y < window.innerHeight + 20) stillFalling = true;
+
+        ctx.save();
+        ctx.globalAlpha = p.opacity;
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation * Math.PI / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+
+      if(elapsed < duration && stillFalling){
+        requestAnimationFrame(frame);
+      } else {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+
+</body>
+</html>
